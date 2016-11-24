@@ -6,8 +6,8 @@
     - vars/main.yml
 
   roles:
-    - geerlingguy.homebrew
-    - geerlingguy.dotfiles
+    - pallav.homebrew
+    - pallav.dotfiles
 
   tasks:
     - include: tasks/ansible-setup.yml

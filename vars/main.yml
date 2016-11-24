@@ -18,34 +18,34 @@ homebrew_installed_packages:
   # - ansible # Installed via Pip.
   - autoconf
   - bash-completion
-  - doxygen
-  - gettext
+  #  - doxygen
+  # - gettext
   - git
   - go
   - gpg
-  - hub
+  # - hub
   - httpie
-  - iperf
-  - libdvdcss
-  - libevent
-  - packer
+  # - iperf
+  # - libdvdcss
+  # - libevent
+  # - packer
   - python
   - sqlite
   - mcrypt
-  - mysql
+  # - mysql
   - nmap
   - npm
   - nvm
-  - php70
-  - php70-mcrypt
-  - php70-xdebug
+  # - php70
+  # - php70-mcrypt
+  # - php70-xdebug
   - ssh-copy-id
   - cowsay
   - readline
-  - subversion
+  # - subversion
   - openssl
-  - pv
-  - drush
+  # - pv
+  # - drush
   - wget
   - wrk
 
@@ -54,24 +54,29 @@ homebrew_taps:
   - caskroom/cask
   - homebrew/binary
   - homebrew/dupes
-  - homebrew/php
+  # - homebrew/php
   - homebrew/versions
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - docker
   - dropbox
+  - google-drive
   - fing
   - firefox
   - google-chrome
   - handbrake
+  - intellij-idea
+  - pycharm
+  - webstorm
+  - alfred
   - kdiff3
   - licecap
-  - limechat
-  - macvim
+  # - limechat
+  # - macvim
   - yujitach-menumeters # Note: Using forked version for 10.11+ support
   - nvalt
-  - sequel-pro
+  # - sequel-pro
   - skype
   - skitch
   - slack

@@ -1,0 +1,155 @@
+Pallavs-MacBook-Pro:mac-dev-playbook pallav$ ansible-galaxy install -r requirements.yml
+- pallav.dotfiles is already installed, skipping.
+- pallav.homebrew is already installed, skipping.
+Pallavs-MacBook-Pro:mac-dev-playbook pallav$ ansible-playbook main.yml -i inventory -K
+SUDO password: 
+
+PLAY [all] *********************************************************************
+
+TASK [setup] *******************************************************************
+ok: [127.0.0.1]
+
+TASK [pallav.homebrew : Get current account's username.] ***********************
+[DEPRECATION WARNING]: always_run is deprecated. Use check_mode = no instead..
+This feature will be removed in version 2.4. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ok: [127.0.0.1]
+
+TASK [pallav.homebrew : Ensure Homebrew parent directory has correct permissions.] ***
+changed: [127.0.0.1]
+
+TASK [pallav.homebrew : Ensure Homebrew directory exists.] *********************
+ok: [127.0.0.1]
+
+TASK [pallav.homebrew : Ensure Homebrew is installed.] *************************
+ok: [127.0.0.1]
+
+TASK [pallav.homebrew : Ensure proper permissions on homebrew_brew_bin_path dirs.] ***
+ok: [127.0.0.1]
+
+TASK [pallav.homebrew : Ensure proper ownership on homebrew_install_path subdirs.] ***
+ok: [127.0.0.1]
+
+TASK [pallav.homebrew : Check if homebrew binary is already in place.] *********
+ok: [127.0.0.1]
+
+TASK [pallav.homebrew : Symlink brew to homebrew_brew_bin_path.] ***************
+skipping: [127.0.0.1]
+
+TASK [pallav.homebrew : Force update brew after installation.] *****************
+skipping: [127.0.0.1]
+
+TASK [pallav.homebrew : Ensure configured taps are tapped.] ********************
+ok: [127.0.0.1] => (item=homebrew/core)
+ok: [127.0.0.1] => (item=caskroom/cask)
+changed: [127.0.0.1] => (item=homebrew/binary)
+changed: [127.0.0.1] => (item=homebrew/dupes)
+changed: [127.0.0.1] => (item=homebrew/versions)
+
+TASK [pallav.homebrew : Ensure configured homebrew packages are installed.] ****
+changed: [127.0.0.1] => (item=[u'autoconf', u'bash-completion', u'git', u'go', u'gpg', u'httpie', u'python', u'sqlite', u'mcrypt', u'nmap', u'npm', u'nvm', u'ssh-copy-id', u'cowsay', u'readline', u'openssl', u'wget', u'wrk'])
+
+TASK [pallav.homebrew : Upgrade all homebrew packages (if configured).] ********
+skipping: [127.0.0.1]
+
+TASK [pallav.homebrew : Get list of apps installed with cask.] *****************
+[DEPRECATION WARNING]: always_run is deprecated. Use check_mode = no instead..
+This feature will be removed in version 2.4. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ok: [127.0.0.1]
+
+TASK [pallav.homebrew : Install configured cask applications.] *****************
+changed: [127.0.0.1] => (item=docker)
+changed: [127.0.0.1] => (item=dropbox)
+changed: [127.0.0.1] => (item=google-drive)
+Password:
+changed: [127.0.0.1] => (item=fing)
+changed: [127.0.0.1] => (item=firefox)
+changed: [127.0.0.1] => (item=google-chrome)
+changed: [127.0.0.1] => (item=handbrake)
+changed: [127.0.0.1] => (item=intellij-idea)
+changed: [127.0.0.1] => (item=pycharm)
+changed: [127.0.0.1] => (item=webstorm)
+changed: [127.0.0.1] => (item=alfred)
+changed: [127.0.0.1] => (item=kdiff3)
+changed: [127.0.0.1] => (item=licecap)
+changed: [127.0.0.1] => (item=yujitach-menumeters)
+changed: [127.0.0.1] => (item=nvalt)
+changed: [127.0.0.1] => (item=skype)
+changed: [127.0.0.1] => (item=skitch)
+changed: [127.0.0.1] => (item=slack)
+changed: [127.0.0.1] => (item=sublime-text)
+changed: [127.0.0.1] => (item=transmit)
+Password:
+changed: [127.0.0.1] => (item=vagrant)
+changed: [127.0.0.1] => (item=virtualbox)
+changed: [127.0.0.1] => (item=vlc)
+
+TASK [pallav.homebrew : Check for Brewfile.] ***********************************
+ok: [127.0.0.1]
+
+TASK [pallav.homebrew : Install from Brewfile.] ********************************
+skipping: [127.0.0.1]
+
+TASK [pallav.dotfiles : Ensure dotfiles repository is cloned locally.] *********
+changed: [127.0.0.1]
+
+TASK [pallav.dotfiles : Ensure all configured dotfiles are links.] *************
+[DEPRECATION WARNING]: always_run is deprecated. Use check_mode = no instead..
+This feature will be removed in version 2.4. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ok: [127.0.0.1] => (item=.bash_profile)
+ok: [127.0.0.1] => (item=.gitconfig)
+ok: [127.0.0.1] => (item=.gitignore)
+ok: [127.0.0.1] => (item=.inputrc)
+ok: [127.0.0.1] => (item=.osx)
+ok: [127.0.0.1] => (item=.vimrc)
+
+TASK [pallav.dotfiles : Remove existing dotfiles file if a replacement is being linked.] ***
+ok: [127.0.0.1] => (item=(0, {'_ansible_parsed': True, u'cmd': u'ls -F ~/.bash_profile', u'end': u'2016-11-24 16:20:33.294626', '_ansible_no_log': False, u'stdout': u'', '_ansible_item_result': True, u'changed': False, 'item': u'.bash_profile', u'delta': u'0:00:00.010410', u'stderr': u'ls: /Users/pallav/.bash_profile: No such file or directory', u'rc': 1, 'invocation': {'module_name': u'command', u'module_args': {u'creates': None, u'executable': None, u'_uses_shell': True, u'_raw_params': u'ls -F ~/.bash_profile', u'removes': None, u'warn': True, u'chdir': None}}, 'stdout_lines': [], 'failed_when_result': False, u'start': u'2016-11-24 16:20:33.284216', u'warnings': [], 'failed': False}))
+changed: [127.0.0.1] => (item=(1, {'_ansible_parsed': True, u'cmd': u'ls -F ~/.gitconfig', u'end': u'2016-11-24 16:20:33.495220', '_ansible_no_log': False, u'stdout': u'/Users/pallav/.gitconfig', '_ansible_item_result': True, u'changed': False, 'item': u'.gitconfig', u'delta': u'0:00:00.006315', u'stderr': u'', u'rc': 0, 'invocation': {'module_name': u'command', u'module_args': {u'creates': None, u'executable': None, u'_uses_shell': True, u'_raw_params': u'ls -F ~/.gitconfig', u'removes': None, u'warn': True, u'chdir': None}}, 'stdout_lines': [u'/Users/pallav/.gitconfig'], 'failed_when_result': False, u'start': u'2016-11-24 16:20:33.488905', u'warnings': [], 'failed': False}))
+ok: [127.0.0.1] => (item=(2, {'_ansible_parsed': True, u'cmd': u'ls -F ~/.gitignore', u'end': u'2016-11-24 16:20:33.763338', '_ansible_no_log': False, u'stdout': u'', '_ansible_item_result': True, u'changed': False, 'item': u'.gitignore', u'delta': u'0:00:00.007105', u'stderr': u'ls: /Users/pallav/.gitignore: No such file or directory', u'rc': 1, 'invocation': {'module_name': u'command', u'module_args': {u'creates': None, u'executable': None, u'_uses_shell': True, u'_raw_params': u'ls -F ~/.gitignore', u'removes': None, u'warn': True, u'chdir': None}}, 'stdout_lines': [], 'failed_when_result': False, u'start': u'2016-11-24 16:20:33.756233', u'warnings': [], 'failed': False}))
+ok: [127.0.0.1] => (item=(3, {'_ansible_parsed': True, u'cmd': u'ls -F ~/.inputrc', u'end': u'2016-11-24 16:20:33.972002', '_ansible_no_log': False, u'stdout': u'', '_ansible_item_result': True, u'changed': False, 'item': u'.inputrc', u'delta': u'0:00:00.006912', u'stderr': u'ls: /Users/pallav/.inputrc: No such file or directory', u'rc': 1, 'invocation': {'module_name': u'command', u'module_args': {u'creates': None, u'executable': None, u'_uses_shell': True, u'_raw_params': u'ls -F ~/.inputrc', u'removes': None, u'warn': True, u'chdir': None}}, 'stdout_lines': [], 'failed_when_result': False, u'start': u'2016-11-24 16:20:33.965090', u'warnings': [], 'failed': False}))
+ok: [127.0.0.1] => (item=(4, {'_ansible_parsed': True, u'cmd': u'ls -F ~/.osx', u'end': u'2016-11-24 16:20:34.195065', '_ansible_no_log': False, u'stdout': u'', '_ansible_item_result': True, u'changed': False, 'item': u'.osx', u'delta': u'0:00:00.006003', u'stderr': u'ls: /Users/pallav/.osx: No such file or directory', u'rc': 1, 'invocation': {'module_name': u'command', u'module_args': {u'creates': None, u'executable': None, u'_uses_shell': True, u'_raw_params': u'ls -F ~/.osx', u'removes': None, u'warn': True, u'chdir': None}}, 'stdout_lines': [], 'failed_when_result': False, u'start': u'2016-11-24 16:20:34.189062', u'warnings': [], 'failed': False}))
+ok: [127.0.0.1] => (item=(5, {'_ansible_parsed': True, u'cmd': u'ls -F ~/.vimrc', u'end': u'2016-11-24 16:20:34.407275', '_ansible_no_log': False, u'stdout': u'', '_ansible_item_result': True, u'changed': False, 'item': u'.vimrc', u'delta': u'0:00:00.007879', u'stderr': u'ls: /Users/pallav/.vimrc: No such file or directory', u'rc': 1, 'invocation': {'module_name': u'command', u'module_args': {u'creates': None, u'executable': None, u'_uses_shell': True, u'_raw_params': u'ls -F ~/.vimrc', u'removes': None, u'warn': True, u'chdir': None}}, 'stdout_lines': [], 'failed_when_result': False, u'start': u'2016-11-24 16:20:34.399396', u'warnings': [], 'failed': False}))
+
+TASK [pallav.dotfiles : Link dotfiles into home folder.] ***********************
+changed: [127.0.0.1] => (item=.bash_profile)
+changed: [127.0.0.1] => (item=.gitconfig)
+changed: [127.0.0.1] => (item=.gitignore)
+changed: [127.0.0.1] => (item=.inputrc)
+changed: [127.0.0.1] => (item=.osx)
+changed: [127.0.0.1] => (item=.vimrc)
+
+TASK [Ensure Ansible downloads directory exists.] ******************************
+changed: [127.0.0.1]
+
+TASK [Ensure /etc/ansible directory exists.] ***********************************
+changed: [127.0.0.1]
+
+TASK [Symlink /usr/local/etc/ansible to /etc/ansible.] *************************
+changed: [127.0.0.1]
+
+TASK [Get current Terminal profile.] *******************************************
+[DEPRECATION WARNING]: always_run is deprecated. Use check_mode = no instead..
+This feature will be removed in version 2.4. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ok: [127.0.0.1]
+
+TASK [Ensure custom Terminal profile is added.] ********************************
+ok: [127.0.0.1]
+
+TASK [Ensure custom Terminal profile is set as default.] ***********************
+ok: [127.0.0.1] => (item=defaults write com.apple.terminal 'Default Window Settings' -string JJG-Term)
+ok: [127.0.0.1] => (item=defaults write com.apple.terminal 'Startup Window Settings' -string JJG-Term)
+
+TASK [Copy sudoers configuration into place.] **********************************
+changed: [127.0.0.1]
+
+TASK [Run .osx dotfiles.] ******************************************************
+ok: [127.0.0.1]
+
+PLAY RECAP *********************************************************************
+127.0.0.1                  : ok=25   changed=11   unreachable=0    failed=0   
+
+Pallavs-MacBook-Pro:mac-dev-playbook pallav$ 

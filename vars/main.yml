@@ -44,7 +44,7 @@ homebrew_installed_packages:
   - readline
   # - subversion
   - openssl
-  # - pv
+  - pv
   # - drush
   - wget
   - wrk
@@ -85,3 +85,7 @@ homebrew_cask_apps:
   - vagrant
   - virtualbox
   - vlc
+  - steam
+  - iterm2
+  - screens
+  - calibre
